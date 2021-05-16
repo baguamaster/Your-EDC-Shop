@@ -1,24 +1,26 @@
+# ProductForm
 from django import forms
-from .models import Book, Publisher, Genre, Tag
+from .models import Product, ProductType
 
 
-class BookForm(forms.ModelForm):
+class ProductForm(forms.ModelForm):
     class Meta:
-        model = Book
-        fields = ('title', 'desc', 'ISBN', 'genre', 'cost',
-                  'tags', 'publisher', 'authors', 'owner', 'image')
+        model = Product
+        fields = (
+            'name',
+            'product_type',
+            'image',
+            'price',
+            'colour',
+            'tag',
+            'length',
+            'desc',
+            'quantity'
+        )
 
 
-class PublisherForm(forms.ModelForm):
-    class Meta:
-        model = Publisher
-        fields = ('name', 'email')
-
-
+# normal form
 class SearchForm(forms.Form):
-    # searching by title is optional
-    title = forms.CharField(max_length=100, required=False)
-    genre = forms.ModelChoiceField(
-        queryset=Genre.objects.all(), required=False)
-    tags = forms.ModelMultipleChoiceField(
-        queryset=Tag.objects.all(), required=False)
+    name = forms.CharField(max_length=100, required=False)
+    product_type = forms.ModelChoiceField(
+        queryset=ProductType.objects.all(), required=False)
