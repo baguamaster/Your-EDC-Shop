@@ -1,176 +1,127 @@
+# products views.py
+from django.shortcuts import (render,
+                              redirect,
+                              reverse,
+                              get_object_or_404)
 from django.contrib import messages
-from .forms import BookForm, PublisherForm, SearchForm
-from .models import Book, Publisher
-from django.shortcuts import render, reverse, redirect, get_object_or_404
 from django.db.models import Q
+from .models import Product
+from .forms import ProductForm, SearchForm
+
 # Create your views here.
 
 
-# define a view function
-def index(request):
+def landing_page(request):
+    return render(request, 'products/landing_page-template.html')
 
-    # populate the form with data submitted via the GET request
+
+def show_products(request):
     search_form = SearchForm(request.GET)
+    products = Product.objects.all()
 
-    # looks for all books where title contains the sub-string 'ring'
-    # query = Q(title__icontains='dune')
+    query = ~Q(pk__in=[])
 
-    # search by a relationship
-    # eg. show all books which the category is horror (as an example,
-    # we assume horror is genre id 3)
-    # query = Q(genre__exact=3)
+    # check if product type exist, and is not empty
+    if 'name' in request.GET and request.GET['name']:
+        query = query & Q(name__icontains=request.GET['name'])
 
-    # search by tags that are id 1 and id 4
-    # query = Q(tags__in=[1, 4])
+    # check if product type exist, and is not empty
+    if 'product_type' in request.GET and request.GET['product_type']:
+        query = query & Q(product_type__exact=request.GET['product_type'])
 
-    # find all books that are in the fantasy genre (id: 2) and
-    # have the tags id 1 and 4
-    # query = Q(genre__exact=2)
-    # query = query & Q(tags__in=[1, 4])
+    # Only assign distinct values
+    products = products.filter(query).distinct()
 
-    # declare a query that get all the books
-    books = Book.objects.all()  # eqv. SELECT * FROM books
-
-    # the always true filtering query
-    query = ~Q(pk__in=[])  # will select EVERYTHING
-
-    # if the user fills in the title and is not an empty string
-    if 'title' in request.GET and request.GET['title']:
-        query = query & Q(title__icontains=request.GET['title'])
-
-    # if the user selects a genre and the genre is not empty
-    if 'genre' in request.GET and request.GET['genre']:
-        query = query & Q(genre__exact=request.GET['genre'])
-
-    if 'tags' in request.GET and request.GET['tags']:
-        # we need to use the getlist function to retrieve an array
-        # from the form
-        query = query & Q(tags__in=request.GET.getlist('tags'))
-
-    # we .distinct() so that there are no repeated results
-    books = books.filter(query).values().distinct()
-
-    return render(request, "books/index-template.html", {
-        'books': books,
+    return render(request, 'products/show-products.template.html', {
+        'products': products,
         'search_form': search_form
     })
 
 
-def view_book_details(request, book_id):
-    book = get_object_or_404(Book, pk=book_id)
-    return render(request, 'books/details-template.html', {
-        'book': book
+# view product details
+def view_product_details(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    return render(request, 'products/product-details.template.html', {
+        'product': product
     })
 
 
-# for adding a new book
-def create_book(request):
+def create_product(request):
+    # validation of username
+    if not request.user.username == ('admin'):
+        messages.error(request, f"Access Denied")
+        return redirect(reverse(show_products))
+
     if request.method == 'POST':
-        # we want to process the adding of a new book
-        create_form = BookForm(request.POST)
-        # check if the user has filled in fields correctly
-        if create_form.is_valid():
-            create_form.save()
-            # redirect back to the index function
+        create_product_form = ProductForm(request.POST)
+
+        if create_product_form.is_valid():
+            create_product_form.save()
             messages.success(
-                request, 'New book has been created successfully!')
-            return redirect(reverse(index))
-        pass
-    else:
-        create_form = BookForm()  # create an instance of BookForm
-        return render(request, 'books/create-template.html', {
-            'form': create_form
-        })
-
-
-def update_book(request, book_id):
-    if request.method == "POST":
-        book_being_changed = get_object_or_404(Book, pk=book_id)
-        book_form = BookForm(request.POST, instance=book_being_changed)
-        if book_form.is_valid():
-            book_form.save()
-            return redirect(reverse(index))
-    else:
-        # 1. retrieve the book that we want to change
-        book_being_changed = get_object_or_404(Book, pk=book_id)
-
-        # 2. create the form for the book and populate it with
-        #  the existing data
-        book_form = BookForm(instance=book_being_changed)
-
-        # 3. display the form
-        return render(request, 'books/update-template.html', {
-            'form': book_form
-        })
-
-
-def create_publisher(request):
-    if request.method == "POST":
-        create_publisher_form = PublisherForm(request.POST)
-        if create_publisher_form.is_valid():
-            create_publisher_form.save()
-            return HttpResponse("New publisher created")
+                request,
+                f"New product {create_product_form.cleaned_data['name']} has been created")
+            return redirect(reverse(show_products))
         else:
-            return HttpResponse("Error creating publisher")
-
-    else:
-        form = PublisherForm()
-        return render(request, 'books/create-publisher-template.html', {
-            'form': form
-        })
-
-
-def show_publishers(request):
-    # select * from publishers
-    all_publishers = Publisher.objects.all()
-    return render(request, 'books/index-publishers-template.html', {
-        'publishers': all_publishers
-    })
-
-
-def update_publisher(request, publisher_id):
-    if request.method == "POST":
-        # 1. retrieve the publisher object that is being updated
-        publisher_being_updated = get_object_or_404(Publisher, pk=publisher_id)
-
-        # 2. create the update form
-        update_form = PublisherForm(
-            request.POST, instance=publisher_being_updated)
-
-        # 3. check the form for errors
-        if update_form.is_valid():
-            # if is valid
-            update_form.save()
-            return redirect(reverse(show_publishers))
-        else:
-            return render(request, 'books/update-publisher-template.html', {
-                'publisher_form': update_form
+            return render(request, 'products/create-products.template.html', {
+                'form': create_product_form
             })
 
     else:
-        # 1. retrieve the publisher that I want to update from the database
-        publisher_to_update = get_object_or_404(Publisher, pk=publisher_id)
-
-        # 2. create the form and initialize its fields with the publisher data
-        # from step 1
-        publisher_form = PublisherForm(instance=publisher_to_update)
-
-        # 3 rener the form
-        return render(request, 'books/update-publisher-template.html', {
-            'publisher_form': publisher_form
+        create_product_form = ProductForm()
+        return render(request, 'products/create-products.template.html', {
+            'form': create_product_form
         })
 
 
-def delete_publisher(request, publisher_id):
-    # process the delete if the method is POST
-    if request.method == "POST":
-        publisher_to_delete = get_object_or_404(Publisher, pk=publisher_id)
-        publisher_to_delete.delete()
-        return redirect(reverse(show_publishers))
-    else:
-        # 1. retrieve the publisher that I want to delete
-        publisher_to_delete = get_object_or_404(Publisher, pk=publisher_id)
+def update_product(request, product_id):
+    # validation of username
+    if not request.user.username == ('admin'):
+        messages.error(request, f"Access Denied")
+        return redirect(reverse(show_products))
 
-        return render(request, 'books/delete-publisher-template.html', {
-            'publisher': publisher_to_delete
+    # Get product to be updated from db
+    product_being_updated = get_object_or_404(Product, pk=product_id)
+
+    # check if the update form is submitted
+    if request.method == "POST":
+        # get values from the POST method
+        product_update_form = ProductForm(
+            request.POST, instance=product_being_updated)
+
+        # check if the value of the form is valid
+        if product_update_form.is_valid():
+            # if yes, save and redirect to product listings
+            product_update_form.save()
+            return redirect(reverse(show_products))
+        else:
+            # re-render the form with values from POST, but don't save yet
+            return render(request, 'products/update-product.template.html', {
+                "form": product_update_form
+            })
+
+    else:
+        # if not POST, then just render the form with product_id instance
+        update_product_form = ProductForm(instance=product_being_updated)
+        return render(request, 'products/update-product.template.html', {
+            "product_being_updated": product_being_updated,
+            "form": update_product_form
+        })
+
+
+def delete_product(request, product_id):
+    # validation of username
+    if not request.user.username == ('admin'):
+        messages.error(request, f"Access Denied")
+        return redirect(reverse(show_products))
+
+    product_to_delete = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        product_to_delete.delete()
+        messages.success(
+                request,
+                f"Product has been deleted")
+        return redirect(reverse(show_products))
+    else:
+        return render(request, 'products/delete-product.template.html', {
+            "product": product_to_delete
         })
