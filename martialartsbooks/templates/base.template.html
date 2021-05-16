@@ -1,3 +1,4 @@
+{% load static %}
 <!doctype html>
 <html lang="en">
 
@@ -6,65 +7,209 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- favicon -->
+    <link rel="icon" type="image/png" href="{% static 'images/favicon-32x32.png'%}" />
 
-    {%block head%}{%endblock%}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Toaster CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+
+    {% block css %}{% endblock %}
 
     <title>{%block title%}{%endblock%}</title>
 </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" width="30" height="30" alt="logo" />
+            Your EDC Shop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/products">Products</a>
+                </li>
+            </ul>
+            {% if request.user.is_authenticated  %}
+            <div class="nav-item my-2 mr-3 text-light dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Hi There!, <span><strong>{{request.user}}</strong></span>
+                </a>
 
-<body>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="/accounts/logout">Logout</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="nav-item my-2 mr-3 text-light"><a class="btn btn-dark text-light" href="/accounts/login">Please
+                    Login</a></div>
+            {%endif%}
+            <div class="nav-item">
+                <a href="{% url 'view_cart' %}" class="btn btn-light">Cart
+                    ({{items_in_cart}})</a>
+            </div>
+        </div>
+    </nav>
+    <div class="push-navbar-down"></div>
 
-    <!-- A grey horizontal navbar that becomes vertical on small screens -->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar w/ text</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarText">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-    </ul>
-    <span class="navbar-text">
-      <a href="{% url 'view_cart' %}">Shopping Cart ({{number_of_items}}</a>)
-    </span>
-  </div>
-</nav>
-    {% if messages %}
-    <div class="alert alert-success">
-        {% for msg in messages %}
-        <p>{{msg}}</p>
-        {% endfor %}
+
+    {%block content%}{%endblock%}
+<
+
+    <!-- Main Page Heading -->
+    <div class="col-12 text-center mt-6" style="padding-top: 3rem">
+        <h1 class="text-dark pt-4">EDC : Every Day Carry</h1>
+        <div class="border-top border-danger w-25 mx-auto my-3"></div>
+        <p class="lead">Tools for Urban Survival</p>
     </div>
-    {% endif %}
+
+
+    <!-- 3 Column Section: -->
     <div class="container">
+        <div class="row my-5">
 
-        {%block content%}{%endblock%}
+
+            <div class="col-md-4 my-4">
+                <img src="img/1.jpg" alt="" class="w-100"
+                    style="padding-bottom: 1rem; float:left;height:15rem; object-fit:cover">
+
+                <h4 class="my-4">Latest Reviews</h4>
+                <p>What's in your bag today?</p>
+                <a href="reviews.html" class="btn btn-outline-dark btn-md">Latest News</a>
+            </div>
+
+            <div class="col-md-4 my-4">
+                <img src="img/2.jpg" alt="" class="w-100"
+                    style="padding-bottom: 1rem; float:left;height:15rem; object-fit:cover">
+
+                <h4 class="my-4">Shop Here</h4>
+                <p>Be prepared to face the world</p>
+                <a href="shop.html" class="btn btn-outline-dark btn-md">Shop Now</a>
+            </div>
+
+            <div class="col-md-4 my-4">
+                <img src="img/3.jpg" alt="" class="w-100"
+                    style="padding-bottom: 1rem; float:left;height:15rem; object-fit:cover">
+                <h4 class="my-4">Free Membership</h4>
+                <p>Enjoy the best deals and latest reviews</p>
+                <a href="register.html" class="btn btn-outline-dark btn-md">Learn More</a>
+            </div>
+
+        </div>
     </div>
 
-    {%block js%}{%endblock%}
+    <!-- End of 3 Column Section -->
 
+        <!--Footer-->
+<section class="footers bg-light pb-3">
+   <div class="container pt-5">
+       <div class="row">
+           <div class="col-xs-12 col-sm-6 col-md-4 footers-one">
+    		    <div class="footers-logo">
+    		        <h1>Your EDC Shop</h1>
+    		    </div>
+    		    <div class="footers-info mt-3">
+                    <p>Every day carry pocket tools for urban survival<br><br>
+                    Contact us : info@edcshop.com</p>
+    		    </div>
+    		
+    		</div>
+    	   <div class="col-xs-12 col-sm-6 col-md-2 footers-two">
+    		    <h5 class="mt-2"><strong>Multitools</strong></h5>
+    		    <ul class="list-unstyled">
+                <li><a href="{% url 'products' %}?category=axes,pliers,onepiece">All Multitools</a></li>
+                <li><a href="{% url 'products' %}?category=axes">Axes</a></li>
+                <li><a href="{% url 'products' %}?category=pliers">Plier-Based</a></li>
+                <li><a href="{% url 'products' %}?category=onepiece">One-Piece Tools</a></li>
+    			</ul>
+    		</div>
+    	   <div class="col-xs-12 col-sm-6 col-md-2 footers-three">
+    		    <h5><strong>Knives</strong></h5>
+    		    <ul class="list-unstyled">
+    			 <li><a href="{% url 'products' %}?category=folding,fixed,rescue">All Knives</a></li>
+    			 <li><a href="{% url 'products' %}?category=folding">Folding Knives</a></li>
+                 <li><a href="{% url 'products' %}?category=fixed">Fixed Blades</a></li>
+                 <li><a href="{% url 'products' %}?category=rescue">Rescue Knives</a></li>
+    			</ul>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-2 footers-three">
+    		    <h5><strong>Other EDC</strong></h5>
+    		    <ul class="list-unstyled">
+    			 <li><a href="{% url 'products' %}?category=torches,bags,apparel">All others</a></li>
+    			 <li><a href="{% url 'products' %}?category=torches">LED Torches</a></li>
+                 <li><a href="{% url 'products' %}?category=bags">Bags</a></li>
+                 <li><a href="{% url 'products' %}?category=apparel">Apparel</a></li>
+    			</ul>
+    		</div>
+    	       	   <div class="col-xs-12 col-sm-6 col-md-2 footers-five">
+    		    <h5><strong>Shopping Cart</strong></h5>
+    		    <ul class="list-unstyled">
+    			 <li><a href="{% url 'view_bag' %}">Your Cart</a></li>
+                </ul>
+                <p style="font-style: italic;">Secure payment with <br><i class="fab fa-cc-stripe" style="font-size: 2rem; color: #696969"></i></p>
+    		</div>
+       </div>
+   </div>
+</section>
+<div class="footer-bottom bg-dark">
+            <div class="container text-center text-white" style="width: 100%">
+                <p> Copyright © Your EDC Shop by Baguamaster. Strictly Beta Test Only.</p>
+            </div>
+        </div>
+
+    {%block js %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <!-- Toaster JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <!-- Toaster options script.js -->
+    <script src="{% static 'script.js' %}"></script>
+    {% if messages %}
+    {% for message in messages %}
+    {% if message.tags == 'success'%}
+    <script type=text/javascript>
+        toastr.{{message.tags}}('{{ message }}')
+    </script>
+    {% elif message.tags == 'info' %}
+    <script type=text/javascript>
+        toastr.{{message.tags}}('{{ message }}')
+    </script>
+    {% elif message.tags == 'warning' %}
+    <script type=text/javascript>
+        toastr.{{message.tags}}('{{ message }}')
+    </script>
+    {% elif message.tags == 'error' %}
+    <script type=text/javascript>
+        toastr.{{message.tags}}('{{ message }}')
+    </script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {%endblock%}
 </body>
 
 </html>
