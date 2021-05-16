@@ -1,0 +1,28 @@
+{% extends 'base.template.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{%block content%}
+    <h1>Welcome to our Bookshop</h1>
+
+    {% if request.user.is_authenticated %}
+    <p>Welcome, {{request.user}}</p>
+    {% else %}
+    <p>Please <a href="/accounts/login">Login</a></p>
+    {%endif%}
+
+    <form method="GET">
+    {{search_form|crispy}}
+    <input type="submit" class="btn btn-primary" value="Search"/>
+    </form>
+
+    <ul class="list-group">
+        {%for book in books%}
+        <li class="list-group-item">
+            <a href="{% url 'view_book_details' book_id=book.id %}">{{book.title}}</a>
+            <a href="{% url 'add_to_cart' book_id=book.id %}" class="btn btn-success btn-sm">Add to Cart</a>
+            <a href="{% url 'update_book' book_id=book.id %}" class="btn btn-primary btn-sm">Update</a>
+        </li>
+        {%endfor%}
+    </ul>
+{%endblock%}
