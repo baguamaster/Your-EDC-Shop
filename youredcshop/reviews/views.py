@@ -1,43 +1,49 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+# reviews views
+from django.shortcuts import (render,
+                              redirect,
+                              reverse,
+                              get_object_or_404)
 from django.contrib import messages
-from django.db.models import Q
-from .forms import ReviewForm
 from .models import Review
-from books.models import Book
-
-
-def show_reviews(request):
-    reviews = Review.objects.all()
-    return render(request, 'reviews/index-template.html', {
-        'reviews': reviews
-    })
+from .forms import ReviewForm
+from products.models import Product
+from django.contrib.auth.decorators import login_required
+from products.views import show_products, view_product_details
 
 # Create your views here.
 
 
-def create_review(request, book_id):
-    book = get_object_or_404(Book, pk=book_id)
-    if request.method == "POST":
-        # first argument is filling in whatever the user provided via
-        # the HTML form
-        form = ReviewForm(request.POST)
+def show_reviews(request):
+    # validation of username
+    if not request.user.username == ('admin'):
+        messages.error(request, f"Access Denied")
+        return redirect(reverse(show_products))
 
-        # check if the form has no errors
-        if form.is_valid():
-            # create the Review model from the form,
-            # but don't save to the database yet (commit=False)
-            review = form.save(commit=False)
-            # request.user will refer to the currently logged in user
-            review.owner = request.user
-            review.book = book
-            review.save()
-            messages.success(request, "New review has been added")
-            return redirect(reverse(show_reviews))
+    reviews = Review.objects.all()
+    return render(request, 'reviews/show-reviews.template.html', {
+        'reviews': reviews
+    })
+
+
+@login_required
+def create_reviews(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.method == 'POST':
+        create_review_form = ReviewForm(request.POST)
+
+        if create_review_form.is_valid():
+            review_created = create_review_form.save(commit=False)
+            review_created.product = product
+            review_created.owner = request.user
+            review_created.save()
+            messages.success(
+                request, f"New review has been created.")
+            return render(request, 'products/product-details.template.html', {
+                'product': product
+            })
     else:
-        # create a new instance of ReviewForm
-        create_form = ReviewForm()
-
-        return render(request, 'reviews/create-template.html', {
-            'form': create_form,
-            'book': book
+        create_review_form = ReviewForm()
+        return render(request, 'reviews/create-reviews.template.html', {
+            'form': create_review_form,
+            'product': product
         })
