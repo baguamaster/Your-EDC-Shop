@@ -112,7 +112,7 @@ Database architecture proceeded from and original Entity Relationship (ER) diagr
 
 **6.1 Entity Relationship (ER) Diagram**
 
-![image info](./youredcshop/static/images/A4.JPG
+![image info](./youredcshop/static/images/A4.JPG)
 
 
 **6.1 Logical Schema Diagram**
