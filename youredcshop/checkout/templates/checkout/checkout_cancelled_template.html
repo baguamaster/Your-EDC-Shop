@@ -1,26 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
+  
+{% extends "base.template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% block css %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock %}
 
-<body>
-    <script src="https://js.stripe.com/v3/"></script>
-    {% autoescape off %}
-    <script>
-        const stripe = Stripe('{{public_key}}');
-        stripe.redirectToCheckout({
-            sessionId: "{{session_id}}"
-        }).then(function (result) {
-      // If `redirectToCheckout` fails; display error message
-      // using `result.error.message`.
-    });
+{% block title %}
+Checkout Success
+{% endblock %}
 
-    </script>
-    {% endautoescape %}
-</body>
+{% block content %}
+<div class="container">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Checkout Cancelled</h1>
+        <p class="lead">You cancelled your checkout</p>
+    </div>
 
-</html>
+    <p class="lead text-center">Stay awhile and shop?</p>
+    <div class="container-fluid my-3">
+        <div class="row-fluid">
+            <div class="d-flex justify-content-center">
+                <a href="{% url 'show_product_route' %}" class="mx-auto btn btn-success btn-lg">Back to shopping</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
