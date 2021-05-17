@@ -36,9 +36,9 @@ The beta site is hosted via Heruku via kh-kev4.herukuaapp.com
 
 The site&#39;s github repository can be found at [https://baguamaster.github.io/your-edc-shop /](https://baguamaster.github.io/your-edc-shop%20/)
 
-(image A1)
 
-![](RackMultipart20210517-4-1kd7qml_html_c129b1538696a1e5.jpg)
+
+![image info](./youredcshop/static/images/A1.jpg)
 
 **3. Technologies Utilised**
 
@@ -94,9 +94,8 @@ For the EDC-themed e-business to directly sell to customers instead of through a
 
 9. Allow hassle-free straight-thru-processing secure payments
 
-(image A2)
+![image info](./youredcshop/static/images/A2.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_4b54409a2fc071f0.jpg)
 
 **5. Key Features**
 
@@ -104,9 +103,8 @@ For the EDC-themed e-business to directly sell to customers instead of through a
 
 The following features were engineered into the original website design:
 
-(Image A3)
+![image info](./youredcshop/static/images/A3.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_89be619ee40df309.jpg)
 
 **6. Database Design**
 
@@ -114,17 +112,15 @@ Database architecture proceeded from and original Entity Relationship (ER) diagr
 
 **6.1 Entity Relationship (ER) Diagram**
 
-(image A4)
+![image info](./youredcshop/static/images/A4.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_54213c562d28ed8d.jpg)
 
 **6.1 Logical Schema Diagram**
 
 When greater detail and relationship were called for, the Logical Schema Diagram was created to establish model relationships.
 
-(image A5)
+![image info](./youredcshop/static/images/A5.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_e81db53168d0fe71.png)
 
 The Logical schema was engineered to incorporate the following tables (models) and done with the aid of moqup.com:
 
@@ -138,31 +134,27 @@ The Logical schema was engineered to incorporate the following tables (models) a
 
 Initial wireframing was done up on MS word to mock-up the features of the website.
 
-(image A6)
+![image info](./youredcshop/static/images/A6.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_9d6fb28991b2b5c0.jpg)
 
 **6.2 Actual Final Design**
 
 The final design and UI was engineered to dovetail with the agile user stories to meet client objectives:
 
-(image A1)
+![image info](./youredcshop/static/images/A1.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_c129b1538696a1e5.jpg)
 
 **6.2.1 Product page**
 
-(image A7)
+![image info](./youredcshop/static/images/A7.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_d0e76c42a6dc31a8.png)
 
 In order to facilitate being able to see inventory in stock, a Django template was used to list all products from the database a &quot;For Loop&quot; action was used to extract the products from product model via identification of product id.
 
 **6.2.3 Search Function**
 
-**(image A2)**
+![image info](./youredcshop/static/images/A2.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_4b54409a2fc071f0.jpg)
 
 Each page also has a sort function found in the drop down menu on the top right hand of the page
 
@@ -172,18 +164,18 @@ Each page also has a sort function found in the drop down menu on the top right 
 
 **6.2.4 Single Products Display**
 
-(image A8)
+![image info](./youredcshop/static/images/A8.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_503676649fa0410a.jpg)
 
 - This type of page displays a particular product and the more information on that product
 - There is a view to the cart
 
 **6.2.5 Reviews Creation**
 
-**(image A9)**![](RackMultipart20210517-4-1kd7qml_html_e8ac9ab8aa4edec5.jpg)
+![image info](./youredcshop/static/images/A9.jpg)
 
-Review function is enable via:
+
+Review function is enabled via:
 
 - implementing using forms.py to display review model fields
 - post form submission, the user will be redirected back to the product details page.
@@ -201,7 +193,7 @@ In order to list products so that users can see the pictures and the price of it
 
 **6.2.6.1 Image uploading using UploadCare**
 
-- Uploadcare [link](https://uploadcare.com/) is used to handle uploading of images for product create.
+- Uploadcare (https://uploadcare.com/) is used to handle uploading of images for product create.
 - The image cdn url is stored and rendered in the img src of each product card
 
 **6.2.7 Access Controls**
@@ -210,9 +202,9 @@ In order to list products so that users can see the pictures and the price of it
 
 **6.2.8 Cart**
 
-(image A10)
+![image info](./youredcshop/static/images/A10.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_7172f9de27069207.jpg)
+
 
 - Cart is implemented using django sessions
 - Backend values were stored in sessions as strings or float and displayed via cart/templates using the view\_cart function.
@@ -322,9 +314,8 @@ This is ensured by making sure no callouts from gitpod python linter are present
 
 Manual testing was conducted to ensure Usability, Functionality and Responsiveness
 
-(image A11)
+![image info](./youredcshop/static/images/A11.jpg)
 
-![](RackMultipart20210517-4-1kd7qml_html_6ff6f88503a69fd7.png)
 
 **11. Deployment**
 
