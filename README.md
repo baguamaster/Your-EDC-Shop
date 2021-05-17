@@ -34,9 +34,9 @@ EDC = Every Day Carry
 
 The beta site is hosted via Heruku via kh-kev4.herukuaapp.com
 
-The site&#39;s github repository can be found at [https://baguamaster.github.io/your-edc-shop /](https://baguamaster.github.io/your-edc-shop%20/)
+The site&#39;s github repository can be found at [https://github.com/Your-EDC-Shop/](https://github.com/Your-EDC-Shop/%20/)
 
-
+https://github.com/baguamaster/Your-EDC-Shop
 
 ![image info](./youredcshop/static/images/A1.JPG)
 
