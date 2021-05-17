@@ -1,0 +1,26 @@
+  
+{% extends "base.template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock %}
+
+{% block title %}
+Add Delivery Address
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Delivery Address Form</h1>
+        <p class="lead text-danger mb-0">Kindly double check your details are accurate</p>
+    </div>
+    <form class="form-group" method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn-lg btn btn-success" type="Submit" value="Submit & Proceed to Checkout" />
+    </form>
+</div>
+{% endblock %}
