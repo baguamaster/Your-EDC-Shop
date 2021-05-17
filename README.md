@@ -4,6 +4,10 @@
 
 ![](RackMultipart20210517-4-1kd7qml_html_b2371de6c2cb9b37.jpg)
 
+
+
+https://github.com/baguamaster/youredcshop/static/images/edc1.jpg
+
 # **Your EDC Shop**
 
 EDC = Every Day Carry
