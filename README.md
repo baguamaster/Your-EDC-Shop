@@ -38,7 +38,7 @@ The site&#39;s github repository can be found at [https://baguamaster.github.io/
 
 
 
-![image info](./youredcshop/static/images/A1.jpg)
+![image info](./youredcshop/static/images/A1.JPG)
 
 **3. Technologies Utilised**
 
@@ -94,7 +94,7 @@ For the EDC-themed e-business to directly sell to customers instead of through a
 
 9. Allow hassle-free straight-thru-processing secure payments
 
-![image info](./youredcshop/static/images/A2.jpg)
+![image info](./youredcshop/static/images/A2.JPG)
 
 
 **5. Key Features**
@@ -103,7 +103,7 @@ For the EDC-themed e-business to directly sell to customers instead of through a
 
 The following features were engineered into the original website design:
 
-![image info](./youredcshop/static/images/A3.jpg)
+![image info](./youredcshop/static/images/A3.JPG)
 
 
 **6. Database Design**
@@ -112,14 +112,14 @@ Database architecture proceeded from and original Entity Relationship (ER) diagr
 
 **6.1 Entity Relationship (ER) Diagram**
 
-![image info](./youredcshop/static/images/A4.jpg)
+![image info](./youredcshop/static/images/A4.JPG
 
 
 **6.1 Logical Schema Diagram**
 
 When greater detail and relationship were called for, the Logical Schema Diagram was created to establish model relationships.
 
-![image info](./youredcshop/static/images/A5.jpg)
+![image info](./youredcshop/static/images/A5.JPG)
 
 
 The Logical schema was engineered to incorporate the following tables (models) and done with the aid of moqup.com:
@@ -141,12 +141,12 @@ Initial wireframing was done up on MS word to mock-up the features of the websit
 
 The final design and UI was engineered to dovetail with the agile user stories to meet client objectives:
 
-![image info](./youredcshop/static/images/A1.jpg)
+![image info](./youredcshop/static/images/A1.JPG)
 
 
 **6.2.1 Product page**
 
-![image info](./youredcshop/static/images/A7.jpg)
+![image info](./youredcshop/static/images/A7.JPG)
 
 
 In order to facilitate being able to see inventory in stock, a Django template was used to list all products from the database a &quot;For Loop&quot; action was used to extract the products from product model via identification of product id.
@@ -164,7 +164,7 @@ Each page also has a sort function found in the drop down menu on the top right 
 
 **6.2.4 Single Products Display**
 
-![image info](./youredcshop/static/images/A8.jpg)
+![image info](./youredcshop/static/images/A8.JPG)
 
 
 - This type of page displays a particular product and the more information on that product
@@ -172,7 +172,7 @@ Each page also has a sort function found in the drop down menu on the top right 
 
 **6.2.5 Reviews Creation**
 
-![image info](./youredcshop/static/images/A9.jpg)
+![image info](./youredcshop/static/images/A9.JPG)
 
 
 Review function is enabled via:
@@ -202,7 +202,7 @@ In order to list products so that users can see the pictures and the price of it
 
 **6.2.8 Cart**
 
-![image info](./youredcshop/static/images/A10.jpg)
+![image info](./youredcshop/static/images/A10.JPG)
 
 
 
@@ -314,7 +314,7 @@ This is ensured by making sure no callouts from gitpod python linter are present
 
 Manual testing was conducted to ensure Usability, Functionality and Responsiveness
 
-![image info](./youredcshop/static/images/A11.jpg)
+![image info](./youredcshop/static/images/A11.JPG)
 
 
 **11. Deployment**
