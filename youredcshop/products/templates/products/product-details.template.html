@@ -1,0 +1,65 @@
+{% extends "base.template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock %}
+
+{% block title %}
+{{product.name}}
+{% endblock %}
+
+{% block content %}
+<div class="container bg-light my-3 pb-3">
+    <div class="px-3 py-2 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">{{product.name}}</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div>
+                <img class="card-img-top img-fluid border border-dark" src="{{product.image.cdn_url}}" alt="product-image" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="container py-4 shadow border border-dark">
+                <p class="mb-0 lead">{{product.name}}</p>
+                <p class="mb-0 lead">{{product.product_type}}</p>
+                <p class="mb-0">Price: $ {{product.price}}</p>
+                <p class="mb-0">
+                    {% for t in product.tag.all %}
+                    <span class="badge badge-dark">{{t.name}}</span>
+                    {% endfor %}
+                </p>
+                <p class="small mb-0">Colour: {{product.colour}}</p>
+                <p class="small mb-0">Length: {{product.length}} cm</p>
+                <p class="mb-0">{{product.desc}}</p>
+                <hr class="my-1">
+                <a href="{% url 'add_to_cart' product_id=product.id %}" class="btn btn-success mt-2">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <hr class="my-3">
+    <div class="my-3">
+        <div class="row px-3 py-0 pb-md-4 ">
+            <div class="col d-flex justify-content-between">
+                <h4 class="d-inline-block mb-2 mr-1">Reviews for {{ product.name }}</h4>
+                <a href="{% url 'create_review_route' product_id=product.id %}" class="btn btn-sm btn-dark mb-2">Add a
+                    Review</a>
+            </div>
+        </div>
+        {% for review in product.review_set.all %}
+        <div class="card">
+            <div class="card-header small py-1">
+                Review submitted on {{review.date}}
+            </div>
+            <div class="card-body py-1">
+                <p class="card-title mb-1">{{review.title}}</hp>
+                    <p class="small card-text mb-1">{{review.content}}</p>
+                    <p class="small card-text text-muted">Submitted by {{review.owner}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

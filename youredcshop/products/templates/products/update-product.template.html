@@ -1,0 +1,27 @@
+{% extends "base.template.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+<!-- for uploadcare css -->
+{{form.media}}
+{% endblock %}
+
+{% block title %}
+Update Product: {{product_being_updated.name}}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Updating Product: {{product_being_updated.name}}</h1>
+        <p class="lead">Update an existing EDC Tool!</p>
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy}}
+        <input type="Submit" value="Update" />
+    </form>
+</div>
+{% endblock %}
