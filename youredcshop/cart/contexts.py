@@ -1,4 +1,3 @@
-  
 def cart_contents(request):
     # retrieve shopping cart from session
     cart = request.session.get('shopping_cart', {})

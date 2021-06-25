@@ -37,7 +37,7 @@ def add_to_cart(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
 
     if product.quantity < 1:
-        messages.error(request, f"Sorry! This item is no longer in stock")
+        messages.error(request, f"Item is no longer in stock")
         return(redirect(reverse(show_products)))
 
     if product_id in cart:
@@ -67,7 +67,7 @@ def add_to_cart(request, product_id):
     request.session['shopping_cart'] = cart
 
     messages.success(request, (str(product.name) +
-                               " has been added to your cart"))
+                               " has been added to cart"))
     return redirect(reverse('show_product_route'))
 
 
@@ -91,7 +91,7 @@ def remove_from_cart(request, product_id):
         product.save()
 
         messages.success(request, (str(product.name) +
-                                   " has been removed from your cart"))
+                                   " has been removed from cart"))
 
     return redirect(reverse('show_product_route'))
 
