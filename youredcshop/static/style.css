@@ -1,32 +1,34 @@
 /* Homepage Styling */
 .navbar {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 300;
+    color: brown;
 }
 
 .navbar-brand {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 600;
+    color: #454d55;
 }
 
 .navbar-text {
-    font-family: "Roboto", sans-serif;
-    font-style: italic;
+    font-family: "Montserrat", sans-serif;
     font-weight: 100;
 }
 
 .carousel-caption {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 .body {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
 /* footer styling */
 footer {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
     font-weight: 300;
+    Color: brown
 }
 
 
