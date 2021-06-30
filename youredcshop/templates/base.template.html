@@ -31,7 +31,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" width="30" height="30" alt="logo" />
-            Pampas Collective</a>
+            Your EDC Shop</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -81,7 +81,7 @@
                 <div class="col-md-4 mt-md-0 mt-3">
                     <!-- Content -->
                     <h5 class="lead">Contact</h5>
-                    <p>enquiries@pampascollective.com</p>
+                    <p>info@youredcshop.com</p>
                 </div>
                 <!-- Grid column -->
                 <hr class="clearfix w-100 d-md-none pb-3">
@@ -102,29 +102,7 @@
                 <hr class="clearfix w-100 d-md-none pb-3">
                 <!-- Grid column -->
                 <div class="col-md-4 mb-md-0 mb-3">
-                    <!-- Links -->
-                    <h5 class="lead">Other Stores</h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a class="text-white"
-                                href="https://shopee.sg/melodyamanda7?categoryId=11&itemId=3760378194">Shopee Store</a>
-                        </li>
-                        <li>
-                            <a class="text-white" href="https://www.carousell.sg/mhengoo/">Carousell Store</a>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Grid column -->
-            </div>
-            <!-- Grid row -->
-        </div>
-        <!-- Footer Links -->
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3">© 2021 Copyright
-            <a class="text-light" href="https://shopee.sg/melodyamanda7?categoryId=11&itemId=3760378194">Pampas
-                Collective Pte Ltd</a>
-        </div>
-        <!-- Copyright -->
+
 
     </footer>
     <!-- Footer -->
@@ -149,19 +127,35 @@
     {% for message in messages %}
     {% if message.tags == 'success'%}
     <script type=text/javascript>
-        toastr.{{message.tags}}('{{ message }}')
+        toastr. {
+            {
+                message.tags
+            }
+        }('{{ message }}')
     </script>
     {% elif message.tags == 'info' %}
     <script type=text/javascript>
-        toastr.{{message.tags}}('{{ message }}')
+        toastr. {
+            {
+                message.tags
+            }
+        }('{{ message }}')
     </script>
     {% elif message.tags == 'warning' %}
     <script type=text/javascript>
-        toastr.{{message.tags}}('{{ message }}')
+        toastr. {
+            {
+                message.tags
+            }
+        }('{{ message }}')
     </script>
     {% elif message.tags == 'error' %}
     <script type=text/javascript>
-        toastr.{{message.tags}}('{{ message }}')
+        toastr. {
+            {
+                message.tags
+            }
+        }('{{ message }}')
     </script>
     {% endif %}
     {% endfor %}
