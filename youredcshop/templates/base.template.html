@@ -27,10 +27,11 @@
 
     <title>{%block title%}{%endblock%}</title>
 </head>
-  <body>
+
+<body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/"><img src="{% static 'images/logo.jpg' %}" width="30" height="30" alt="logo" />
-            Your EDC Shop</a>
+        <a class="navbar-brand" href="/"><img src="{% static 'images/logo.png' %}" width="30" height="30" alt="logo" />
+            Pampas Collective</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -48,7 +49,7 @@
             <div class="nav-item my-2 mr-3 text-light dropdown show">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hi There!, <span><strong>{{request.user}}</strong></span>
+                    Welcome, <span><strong>{{request.user}}</strong></span>
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -69,108 +70,64 @@
 
 
     {%block content%}{%endblock%}
-<
 
-    <!-- Main Page Heading -->
-    <div class="col-12 text-center mt-6" style="padding-top: 3rem">
-        <h1 class="text-dark pt-4">EDC : Every Day Carry</h1>
-        <div class="border-top border-danger w-25 mx-auto my-3"></div>
-        <p class="lead">Everyday Tools for Daily Urban Living</p>
-    </div>
-
-
-    <!-- 3 Column Section: -->
-    <div class="container">
-        <div class="row my-5">
-
-
-            <div class="col-md-4 my-4">
-                <img src="img/1.jpg" alt="" class="w-100"
-                    style="padding-bottom: 1rem; float:left;height:15rem; object-fit:cover">
-
-                <h4 class="my-4">Latest Reviews</h4>
-                <p>What's in your bag today?</p>
-                <a href="reviews.html" class="btn btn-outline-dark btn-md">Latest News</a>
+    <!-- Footer -->
+    <footer class="page-footer font-small bg-dark pt-4 text-light">
+        <!-- Footer Links -->
+        <div class="container text-center text-md-left">
+            <!-- Grid row -->
+            <div class="row">
+                <!-- Grid column -->
+                <div class="col-md-4 mt-md-0 mt-3">
+                    <!-- Content -->
+                    <h5 class="lead">Contact</h5>
+                    <p>enquiries@pampascollective.com</p>
+                </div>
+                <!-- Grid column -->
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <!-- Grid column -->
+                <div class="col-md-4 mt-md-0 mt-3">
+                    <!-- Content -->
+                    <h5 class="lead">Account</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white" href="/accounts/login">Login</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="/accounts/signup">Register</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <!-- Grid column -->
+                <div class="col-md-4 mb-md-0 mb-3">
+                    <!-- Links -->
+                    <h5 class="lead">Other Stores</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a class="text-white"
+                                href="https://shopee.sg/melodyamanda7?categoryId=11&itemId=3760378194">Shopee Store</a>
+                        </li>
+                        <li>
+                            <a class="text-white" href="https://www.carousell.sg/mhengoo/">Carousell Store</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Grid column -->
             </div>
-
-            <div class="col-md-4 my-4">
-                <img src="img/2.jpg" alt="" class="w-100"
-                    style="padding-bottom: 1rem; float:left;height:15rem; object-fit:cover">
-
-                <h4 class="my-4">Shop Here</h4>
-                <p>Face the world prepared</p>
-                <a href="shop.html" class="btn btn-outline-dark btn-md">Browse Now</a>
-            </div>
-
-            <div class="col-md-4 my-4">
-                <img src="img/3.jpg" alt="" class="w-100"
-                    style="padding-bottom: 1rem; float:left;height:15rem; object-fit:cover">
-                <h4 class="my-4">Free Membership</h4>
-                <p>Join us for the latest deals and reviews</p>
-                <a href="register.html" class="btn btn-outline-dark btn-md">Discover More</a>
-            </div>
-
+            <!-- Grid row -->
         </div>
-    </div>
-
-    <!-- End of 3 Column Section -->
-
-        <!--Footer-->
-<section class="footers bg-light pb-3">
-   <div class="container pt-5">
-       <div class="row">
-           <div class="col-xs-12 col-sm-6 col-md-4 footers-one">
-    		    <div class="footers-logo">
-    		        <h1>Your EDC Shop</h1>
-    		    </div>
-    		    <div class="footers-info mt-3">
-                    <p>Every day carry pocket tools for urban survival<br><br>
-                    Contact us : info@edcshop.com</p>
-    		    </div>
-    		
-    		</div>
-    	   <div class="col-xs-12 col-sm-6 col-md-2 footers-two">
-    		    <h5 class="mt-2"><strong>Multitools</strong></h5>
-    		    <ul class="list-unstyled">
-                <li><a href="{% url 'products' %}?category=axes,pliers,onepiece">All Multitools</a></li>
-                <li><a href="{% url 'products' %}?category=axes">Axes</a></li>
-                <li><a href="{% url 'products' %}?category=pliers">Plier-Based</a></li>
-                <li><a href="{% url 'products' %}?category=onepiece">One-Piece Tools</a></li>
-    			</ul>
-    		</div>
-    	   <div class="col-xs-12 col-sm-6 col-md-2 footers-three">
-    		    <h5><strong>Knives</strong></h5>
-    		    <ul class="list-unstyled">
-    			 <li><a href="{% url 'products' %}?category=folding,fixed,rescue">All Knives</a></li>
-    			 <li><a href="{% url 'products' %}?category=folding">Folding Knives</a></li>
-                 <li><a href="{% url 'products' %}?category=fixed">Fixed Blades</a></li>
-                 <li><a href="{% url 'products' %}?category=rescue">Rescue Knives</a></li>
-    			</ul>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-2 footers-three">
-    		    <h5><strong>Other EDC</strong></h5>
-    		    <ul class="list-unstyled">
-    			 <li><a href="{% url 'products' %}?category=torches,bags,apparel">All others</a></li>
-    			 <li><a href="{% url 'products' %}?category=torches">Flashlights</a></li>
-                 <li><a href="{% url 'products' %}?category=bags">Bags</a></li>
-                 <li><a href="{% url 'products' %}?category=apparel">Apparel</a></li>
-    			</ul>
-    		</div>
-    	       	   <div class="col-xs-12 col-sm-6 col-md-2 footers-five">
-    		    <h5><strong>Shopping Cart</strong></h5>
-    		    <ul class="list-unstyled">
-    			 <li><a href="{% url 'view_bag' %}">Your Cart</a></li>
-                </ul>
-                <p style="font-style: italic;">Secure payment with <br><i class="fab fa-cc-stripe" style="font-size: 2rem; color: #696969"></i></p>
-    		</div>
-       </div>
-   </div>
-</section>
-<div class="footer-bottom bg-dark">
-            <div class="container text-center text-white" style="width: 100%">
-                <p> Copyright © Your EDC Shop by Baguamaster. Strictly Beta Test Only.</p>
-            </div>
+        <!-- Footer Links -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2021 Copyright
+            <a class="text-light" href="https://shopee.sg/melodyamanda7?categoryId=11&itemId=3760378194">Pampas
+                Collective Pte Ltd</a>
         </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
 
     {%block js %}
     <!-- Optional JavaScript -->
