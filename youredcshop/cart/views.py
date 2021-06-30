@@ -106,8 +106,7 @@ def update_item_quantity(request, product_id):
         # check if update form is giving zero qty
         # zero quantity means removing item from cart
         if int(request.POST['qty']) == 0:
-            messages.error(
-                request, f"You cannot have enter a value of zero for quantity. Please remove the item from the cart if you wish to delete it.")
+            messages.error(request, f"You cannot have enter a value of zero for quantity. Please remove the item from the cart if you wish to delete it.")
             return(redirect(reverse(view_cart)))
 
         # check qty
