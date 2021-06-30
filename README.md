@@ -32,7 +32,7 @@ EDC = Every Day Carry
 
 **2. Beta Site Demo**
 
-The beta site is hosted via Heruku via [**https://kh-kev4.herokuapp.com**](https://kh-kev4.herokuapp.com/)
+The beta site is hosted via Heruku via [**https://edcshop-kev4.herokuapp.com/**](https://edcshop-kev4.herokuapp.com/)
 
 The site&#39;s github repository can be found at https://github.com/baguamaster/Your-EDC-Shop
 
@@ -353,7 +353,7 @@ Before the site goes live the following elements are checked gitpod&#39;s native
 
 **Demo Website (Deployed via Heroku)**
 
-- [**https://kh-kev4.herokuapp.com**](https://kh-kev4.herokuapp.com/)
+- [**https://edcshop-kev4.herokuapp.com/**](https://edcshop-kev4.herokuapp.com/)
 
 **12. Acknowledgements**
 
