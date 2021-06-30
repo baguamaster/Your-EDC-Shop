@@ -1,4 +1,3 @@
-  
 {% extends "base.template.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
@@ -15,7 +14,8 @@ Add Delivery Address
 <div class="container">
     <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
         <h1 class="display-4">Delivery Address Form</h1>
-        <p class="lead text-danger mb-0">Kindly double check your details are accurate</p>
+        <p class="lead text-danger mb-0">Please ensure your details are accurate</p>
+
     </div>
     <form class="form-group" method="POST">
         {% csrf_token %}
