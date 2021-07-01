@@ -9,7 +9,7 @@ EDC = Every Day Carry
 
 **Pocket tools for daily Urban Survival**
 
-![image info](./your-EDC-Shop/static/images/edc1.jpg)
+![image info](./static/images/edc1.jpg)
 
 **Background &amp; Objective**
 
@@ -36,7 +36,7 @@ The beta site is hosted via Heruku via [**https://edcshop-kev4.herokuapp.com/**]
 
 The site&#39;s github repository can be found at https://github.com/baguamaster/Your-EDC-Shop
 
-![image info](./your-EDC-Shop/static/images/A1.JPG)
+![image info](./static/images/A1.JPG)
 
 **3. Technologies Utilised**
 
@@ -101,7 +101,7 @@ For the EDC-themed e-business to directly sell to customers instead of through a
 
 The following features were engineered into the original website design:
 
-![image info](./youredcshop/static/images/A3.JPG)
+![image info](./static/images/A3.JPG)
 
 
 **6. Database Design**
@@ -110,14 +110,14 @@ Database architecture proceeded from and original Entity Relationship (ER) diagr
 
 **6.1 Entity Relationship (ER) Diagram**
 
-![image info](./youredcshop/static/images/A4.JPG)
+![image info](./static/images/A4.JPG)
 
 
 **6.1 Logical Schema Diagram**
 
 When greater detail and relationship were called for, the Logical Schema Diagram was created to establish model relationships.
 
-![image info](./youredcshop/static/images/A5.JPG)
+![image info](./static/images/A5.JPG)
 
 
 The Logical schema was engineered to incorporate the following tables (models) and done with the aid of moqup.com:
@@ -132,26 +132,26 @@ The Logical schema was engineered to incorporate the following tables (models) a
 
 Initial wireframing was done up on MS word to mock-up the features of the website.
 
-![image info](./youredcshop/static/images/A6.jpg)
+![image info](./static/images/A6.jpg)
 
 
 **6.2 Actual Final Design**
 
 The final design and UI was engineered to dovetail with the agile user stories to meet client objectives:
 
-![image info](./youredcshop/static/images/A1.JPG)
+![image info](./static/images/A1.JPG)
 
 
 **6.2.1 Product page**
 
-![image info](./youredcshop/static/images/A7.JPG)
+![image info](./static/images/A7.JPG)
 
 
 In order to facilitate being able to see inventory in stock, a Django template was used to list all products from the database a &quot;For Loop&quot; action was used to extract the products from product model via identification of product id.
 
 **6.2.3 Search Function**
 
-![image info](./youredcshop/static/images/A2.jpg)
+![image info](./static/images/A2.jpg)
 
 
 Each page also has a sort function found in the drop down menu on the top right hand of the page
@@ -162,7 +162,7 @@ Each page also has a sort function found in the drop down menu on the top right 
 
 **6.2.4 Single Products Display**
 
-![image info](./youredcshop/static/images/A8.JPG)
+![image info](./static/images/A8.JPG)
 
 
 - This type of page displays a particular product and the more information on that product
@@ -170,7 +170,7 @@ Each page also has a sort function found in the drop down menu on the top right 
 
 **6.2.5 Reviews Creation**
 
-![image info](./youredcshop/static/images/A9.JPG)
+![image info](./static/images/A9.JPG)
 
 
 Review function is enabled via:
@@ -200,7 +200,7 @@ In order to list products so that users can see the pictures and the price of it
 
 **6.2.8 Cart**
 
-![image info](./youredcshop/static/images/A10.JPG)
+![image info](./static/images/A10.JPG)
 
 
 
@@ -312,7 +312,7 @@ This is ensured by making sure no callouts from gitpod python linter are present
 
 Manual testing was conducted to ensure Usability, Functionality and Responsiveness
 
-![image info](./youredcshop/static/images/A11.JPG)
+![image info](./static/images/A11.JPG)
 
 
 **11. Deployment**
@@ -359,7 +359,7 @@ Before the site goes live the following elements are checked gitpod&#39;s native
 
 **12.1 General Acknowledgements:**
 
-- Mr Malcolm Yam – UI &amp; Bootrap instructor
+- Mr Malcolm Yam – UI Bootrap instructor
 - Mr Arif Rawi - HTML and CSS instructor
 - Mr Paul Kunxin Chor – The main instructor who saw us through the hardest technical areas
 - Mr Ace Liang - Teaching support and troubleshooter
