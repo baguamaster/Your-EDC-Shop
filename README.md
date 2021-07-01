@@ -9,7 +9,7 @@ EDC = Every Day Carry
 
 **Pocket tools for daily Urban Survival**
 
-![image info](./youredcshop/static/images/edc1.jpg)
+![image info](./your-edc-shop/static/images/edc1.jpg)
 
 **Background &amp; Objective**
 
