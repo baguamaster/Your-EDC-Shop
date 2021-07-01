@@ -1,0 +1,110 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% endblock %}
+
+{% block title %}
+YOUR EDC SHOP
+{% endblock %}
+
+{% block content %}
+<div class="featurette-one container-fluid py-4">
+    <div class="col-md-4 p-lg-5 mx-auto my-5">
+        <h1 class="display-4 featurette-one-text">Your EDC Shop</h1>
+        <p class="lead featurette-one-text">What's in your pocket today?</p>
+        <a class="btn btn-dark btn-outline-secondary text-light btn-lg featurette-one-text" href="/products">Browse &
+            Shop</a>
+    </div>
+</div>
+<div class="text-center container-fluid py-4">
+    <h2 class="display-4 featurette-one-text">EDC : Every Day Carry</h2>
+    <h3 class="lead featurette-one-text">Everyday Tools for Daily Urban Living</h3>
+</div>
+<div class="product-types container my-3">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 my-3">
+            <a class="text-dark" href="products/?name=&product_type=1">
+                <div class="card container py-3 border shadow">
+                    <img class="rounded mx-auto" src="{% static 'images/boker_minitech.jpg' %}"
+                        alt="placeholder image" width="300" height="200">
+                    <h1 class="card-title lead my-3 mx-auto">KNIFES</h1>
+                    <p class="small card-content mx-auto">Effective blades</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-6 my-3">
+            <a class="text-dark" href="products/?name=&product_type=2">
+                <div class="card container py-3 border shadow">
+                    <img class="rounded mx-auto" src="{% static 'images/boker_pen.jpg' %}"
+                        alt="placeholder image" width="300" height="200">
+                    <h1 class="card-title lead my-3 mx-auto">PENS</h1>
+                    <p class="small card-content mx-auto">Versatile writing</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-6 my-3">
+            <a class="text-dark" href="products/?name=&product_type=3">
+                <div class="card container py-3 border shadow">
+                    <img class="rounded mx-auto" src="{% static 'images/edclights.png' %}"
+                        alt="placeholder image" width="300" height="200">
+                    <h1 class="card-title lead my-3 mx-auto">FLASHLIGHTS</h1>
+                    <p class="small card-content mx-auto">Bright and compact</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-6 my-3">
+            <a class="text-dark" href="products/?name=&product_type=4">
+                <div class="card container py-3 border shadow">
+                    <img class="rounded mx-auto" src="{% static 'images/ladiesdefence.JPG' %}"
+                        alt="placeholder image" width="300" height="200">
+                    <h1 class="card-title lead my-3 mx-auto">AXES</h1>
+                    <p class="small card-content mx-auto">Handheld power</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-6 my-3">
+            <a class="text-dark" href="products/?name=&product_type=5">
+                <div class="card container py-3 border shadow">
+                    <img class="rounded mx-auto" src="{% static 'images/emtwork.jpg' %}"
+                        alt="placeholder image" width="300" height="200">
+                    <h1 class="card-title lead my-3 mx-auto">SCISSORS</h1>
+                    <p class="small card-content mx-auto">Sharp blades</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-lg-4 col-md-6 my-3">
+            <a class="text-dark" href="products/?name=&product_type=6">
+                <div class="card container py-3 border shadow">
+                    <img class="rounded mx-auto" src="{% static 'images/slingbagreview.JPG' %}"
+                        alt="placeholder image" width="300" height="200">
+                    <h1 class="card-title lead my-3 mx-auto">BAGS</h1>
+                    <p class="small card-content mx-auto">Portable and durable</p>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+<hr class="my-3" />
+<div class="container my-3">
+    <article class="row featurette">
+        <div class="col-md-5">
+            <img class="featurette-two-img rounded mx-auto d-block" src="{% static 'images/logo.jpg' %}"
+                alt="myedcshop-logo" />
+        </div>
+        <div class="col-md-7">
+            <h2 class="featurette-heading mt-4">
+                <span class="text-muted">About My EDC Shop</span>
+            </h2>
+            <p class="lead">
+                My EDC Shop is about bringing you the latest in smart pocket gadgets and urban survival tools. Read about how
+                everyday people like you use innovative tools in their daily carry. EDC = Every Day Carry.
+            </p>
+        </div>
+
+    </article>
+</div>
+{% endblock %}

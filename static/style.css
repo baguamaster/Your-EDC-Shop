@@ -1,0 +1,88 @@
+/* Homepage Styling */
+.navbar {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    color: brown;
+    background-color: #440202!important;
+}
+
+.navbar-brand {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: #454d55;
+}
+
+.navbar-text {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 100;
+}
+
+.carousel-caption {
+    font-family: "Montserrat", sans-serif;
+}
+
+.body {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* footer styling */
+footer {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    Color: brown;
+}
+
+footer.page-footer {
+    background-color: #440202!important;
+}
+
+.featurette-one-text {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+}
+
+h1.featurette-one-text, p.featurette-one-text {
+    color: #00ff72!important;
+}
+
+.push-navbar-down {
+    height: 70px;
+}
+
+.featurette-one {
+    background-image: url(https://ucarecdn.com/a868aca0-bbe9-4091-b6ad-2375803108de/edc2.jpg);
+    /* background-image: src="{% static 'images/edc2.jpg' %}"; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.featurette-two-img {
+    width: 10rem;
+}
+
+.form-inline .form-group {
+    margin-right: 4px;
+}
+
+label {
+    margin-right: 4px;
+}
+
+.products-banner {
+    background-image: src="{% static 'images/logo.jpg' %}";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cart-banner {
+    background-image: src="{% static 'images/logo.JPG' %}";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.cart-quantity-input {
+    width: 40px;
+}
