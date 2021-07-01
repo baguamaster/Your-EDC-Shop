@@ -92,7 +92,7 @@ For the EDC-themed e-business to directly sell to customers instead of through a
 
 9. Allow hassle-free straight-thru-processing secure payments
 
-![image info](./youredcshop/static/images/A2.JPG)
+![image info](./static/images/A2.JPG)
 
 
 **5. Key Features**
