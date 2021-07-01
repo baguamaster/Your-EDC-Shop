@@ -9,7 +9,7 @@ EDC = Every Day Carry
 
 **Pocket tools for daily Urban Survival**
 
-![image info](./your-EDC-shop/static/images/edc1.jpg)
+![image info](./your-EDC-Shop/static/images/edc1.jpg)
 
 **Background &amp; Objective**
 
@@ -36,7 +36,7 @@ The beta site is hosted via Heruku via [**https://edcshop-kev4.herokuapp.com/**]
 
 The site&#39;s github repository can be found at https://github.com/baguamaster/Your-EDC-Shop
 
-![image info](./your-EDC-shop/static/images/A1.JPG)
+![image info](./your-EDC-Shop/static/images/A1.JPG)
 
 **3. Technologies Utilised**
 
